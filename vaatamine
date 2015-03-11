@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Kuulutused</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>	
+<body>
+
+       
+   <h2>Vaata kuulutusi</h2>
+  <ul data-role="listview" data-filter="true" data-filter-placeholder="otsi...">
+  <li>
+<?php
+require('conf.php');//võtab kaasa kuulutuse confi
+
+//paring andmebaasi 
+$paring = mysql_query('SELECT * FROM TAK14_Kolmas.Hinnang'); //selekteeri k6ik (*) tabelist 'kuulutused'
+
+//omistame muutujale ja väljastame ridadena (võtan nii palju ridu kui baasis on)
+while($rida=mysql_fetch_array($paring)){
+	echo '<li>' .$rida['Asutus'].
+	' - '.$rida['Andmed'].
+	' - '.$rida['Kommentaarid'].
+	' - '.$rida['Hinnangud'].
+	'</li>';
+}
+
+?>
+
+</ul>
+</body>
+</html>
