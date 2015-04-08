@@ -1,2 +1,0 @@
-# Projekt-katsetus
-Teine proov
